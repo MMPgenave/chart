@@ -30,6 +30,9 @@ let y2_Line_CN = -(columnHeight / 100) * inputValue3 + columnHeight;
 LineCN.x1.baseVal.value = x1_Line_CN;
 LineCN.x2.baseVal.value = x2_Line_CN;
 
+addEventListener("resize", (event) => {
+  console.log(`resize svg width:${svgWidth}`);
+});
 
 function drawLineAC() {
   let LineAC = document.getElementById("LineAC");
