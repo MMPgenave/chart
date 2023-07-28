@@ -32,6 +32,7 @@ LineCN.x2.baseVal.value = x2_Line_CN;
 
 addEventListener("resize", (event) => {
   console.log(`resize svg width:${svgWidth}`);
+  window.location.reload();
 });
 
 function drawLineAC() {
