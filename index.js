@@ -1,6 +1,6 @@
 const columnHeight = document.getElementById("colA").clientHeight; //384px or in tailwing h-96
 const ballHeight = document.getElementById("ball1").clientHeight; //16px
-
+const svgWidth = document.getElementById("svg").clientWidth;
 //in initial page loading we call a function
 window.onload = function () {
   move_ball_1();
@@ -11,26 +11,37 @@ window.onload = function () {
 //set positions of Line AC
 let inputValue1 = document.getElementById("input1").value;
 let inputValue2 = document.getElementById("input2").value;
-let x1_Line_AC = 215;
+let LineAC = document.getElementById("LineAC");
+let x1_Line_AC = 0;
 let y1_Line_AC = -(columnHeight / 100) * inputValue1 + columnHeight;
-let x2_Line_AC = 395;
+let x2_Line_AC = svgWidth / 2;
 let y2_Line_AC = -(columnHeight / 100) * inputValue2 + columnHeight;
+LineAC.x1.baseVal.value = x1_Line_AC;
+LineAC.x2.baseVal.value = x2_Line_AC;
 
 //set positions of Line CN
 let inputValue3 = document.getElementById("input3").value;
-let x1_Line_CN = 395;
+let LineCN = document.getElementById("LineCN");
+
+let x1_Line_CN = svgWidth / 2;
 let y1_Line_CN = -(columnHeight / 100) * inputValue2 + columnHeight;
-let x2_Line_CN = 570;
+let x2_Line_CN = svgWidth;
 let y2_Line_CN = -(columnHeight / 100) * inputValue3 + columnHeight;
+LineCN.x1.baseVal.value = x1_Line_CN;
+LineCN.x2.baseVal.value = x2_Line_CN;
+
 
 function drawLineAC() {
   let LineAC = document.getElementById("LineAC");
+
   LineAC.y1.baseVal.value = y1_Line_AC;
   LineAC.y2.baseVal.value = y2_Line_AC;
 }
 
 function drawLineCN() {
   let LineCN = document.getElementById("LineCN");
+  LineCN.x1.baseVal = x1_Line_CN;
+  LineCN.x2.baseVal = x2_Line_CN;
   LineCN.y1.baseVal.value = y1_Line_CN;
   LineCN.y2.baseVal.value = y2_Line_CN;
 }
